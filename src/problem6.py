@@ -2,8 +2,8 @@
 Final exam, problem 3.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and Noelle Hale.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -88,6 +88,30 @@ And this one for n=14:
     #   (and then change the Xs back to spaces).
     # ------------------------------------------------------------------
 
+    maxnum = 9
+    for k in range(n):
+
+        # printing the empty spaces
+        for j in range(n - k - 1, -1, -1):
+            print(' ', end='')
+
+        # printing the numbers
+
+        for j in range(k + 1):
+            if (j + 1) % 10 < 1:
+                print(j + 1, end='')
+            else:
+                num_print = (j + 1) % 10
+                print(num_print, end='')
+
+
+        # printing the asterisks
+        print('*', end='')
+        for j in range(k + 1):
+            print('*', end='')
+
+
+        print()
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

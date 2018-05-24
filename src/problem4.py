@@ -79,9 +79,12 @@ class Pig(object):
         """
         # DONE: Implement and test this method.
 
-        final_weight = self.weight + 365
-        while self.weight <= final_weight:
-            self.eat(self.pounds_eat)
+        # final_weight = self.weight + 365
+        # while self.weight <= final_weight:
+        #     self.eat(self.pounds_eat)
+        for k in range(365):
+            self.eat(k + 1)
+
 
     def heavier_pig(self, other_pig):
         """
