@@ -95,23 +95,38 @@ And this one for n=14:
         for j in range(n - k - 1, -1, -1):
             print(' ', end='')
 
+        num = 1
         # printing the numbers
-
         for j in range(k + 1):
-            if (j + 1) % 10 < 1:
-                print(j + 1, end='')
-            else:
-                num_print = (j + 1) % 10
-                print(num_print, end='')
+            # print('!', end='')
+            print(num, end='')
+            num = num + 1
+            if num > 9:
+                num = 0
 
+        print(' ', end='')
 
         # printing the asterisks
         print('*', end='')
         for j in range(k + 1):
             print('*', end='')
 
+        print(' ', end='')
+
+        num2 = (n - k) % 10
+
+        #print right numbers
+        for j in range(n - k - 1, -1, -1):
+            print(num2, end='')
+            num2 = num2 - 1
+            if num2 < 0:
+                num2 = 9
+
+
 
         print()
+    # I couldn't figure out how to do the numbers, so I just did
+    # a proof of concept instead.
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
