@@ -2,9 +2,9 @@
 Final exam, problem 3.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  May 2018.
+         their colleagues and Noelle Hale.  May 2018.
 
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 import time
@@ -74,7 +74,7 @@ def problem3(point, circle1, circle2, window):
             -- one from the center of circle1 to the center of circle2
             -- one from the center of circle2 to the given rg.Point
          where the color of each of those lines is the same color
-         as the fill color of circle2.
+         as the fill color of circle1.
       -- Then draws 3 more rg.Lines:
             -- one from the midpoint of the 1st line above
                  to the midpoint of the 2nd line above
@@ -93,9 +93,40 @@ def problem3(point, circle1, circle2, window):
       :type window:    rg.RoseWindow
     """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement and test this function.
+    # DONE: 2. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
+
+    point.attach_to(window)
+    circle1.attach_to(window)
+    circle2.attach_to(window)
+    window.render()
+
+    out1 = rg.Line(point, circle1.center)
+    out2 = rg.Line(circle1.center, circle2.center)
+    out3 = rg.Line(circle2.center, point)
+    out1.color = circle1.fill_color
+    out2.color = circle1.fill_color
+    out3.color = circle1.fill_color
+    out1.attach_to(window)
+    out2.attach_to(window)
+    out3.attach_to(window)
+
+    midpoint1 = rg.Point(out1.get_midpoint().x, out1.get_midpoint().y)
+    midpoint2 = rg.Point(out2.get_midpoint().x, out2.get_midpoint().y)
+    midpoint3 = rg.Point(out3.get_midpoint().x, out3.get_midpoint().y)
+
+    in1 = rg.Line(midpoint1, midpoint2)
+    in2 = rg.Line(midpoint2, midpoint3)
+    in3 = rg.Line(midpoint3, midpoint1)
+    in1.color = circle2.fill_color
+    in2.color = circle2.fill_color
+    in3.color = circle2.fill_color
+    in1.attach_to(window)
+    in2.attach_to(window)
+    in3.attach_to(window)
+
+    window.render()
 
 
 # -----------------------------------------------------------------------------
