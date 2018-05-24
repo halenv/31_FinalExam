@@ -19,7 +19,7 @@ def main():
     print()
     print('Un-comment the calls in MAIN one by one')
     print(' to run the testing code as you complete the TODOs.')
-    run_test_problem1a()
+    # run_test_problem1a()
     # run_test_problem1b()
 
 
@@ -172,10 +172,15 @@ def problem1b(numbers):
       :type numbers:  [int]
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
-
+    sum_num = 0
+    one_third = len(numbers) // 3
+    for k in range(one_third):
+        num_add = numbers[one_third + k]
+        sum_num = sum_num + num_add
+    return sum_num
 
 ###############################################################################
 # Our tests use the following to print error messages in red.
